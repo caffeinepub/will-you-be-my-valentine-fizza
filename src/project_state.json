@@ -1,37 +1,141 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Create a \"Will you be my valentine fizza\" website.",
+  "projectStateVersion": 23,
+  "summary": "ICP starter application scaffolded with a Motoko backend canister and a React (Vite) + Tailwind + shadcn/ui frontend, including Internet Identity integration, actor/query hooks, build/deploy templates, generated brand assets, and a frontend personalization panel persisted to local storage.",
   "existing_features": [
     {
-      "id": "feature-create-a-single-page-valentine-themed-website-that-prominently-displays-the-message-will-you-be-my-valentine-fizza-and-a-short-subtitle-instruction-in-english",
-      "title": "Create a single-page Valentine-themed website that prominently displays the message “Will you be my valentine fizza?” and a short subtitle/instruction in English.",
+      "id": "IF-1",
+      "title": "Motoko backend canister scaffold",
+      "synonyms": [
+        "backend canister",
+        "Motoko canister"
+      ],
+      "description": "Base Motoko backend (main.mo) with generated Candid bindings and frontend declarations wired for local/dev deployment.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "React (Vite) + Tailwind frontend scaffold",
+      "synonyms": [
+        "Vite frontend",
+        "React UI"
+      ],
+      "description": "Frontend app bootstrap with Vite, Tailwind styling, shared config, and base App/main entrypoints.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "shadcn/ui component library included",
+      "synonyms": [
+        "UI component kit",
+        "shadcn components"
+      ],
+      "description": "Large set of prebuilt shadcn/ui components added under src/components/ui and configured for the project.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Internet Identity authentication integration",
+      "synonyms": [
+        "II login",
+        "Internet Identity"
+      ],
+      "description": "Hooks/utilities for Internet Identity login and authenticated canister actor creation (useInternetIdentity, useActor).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Query and state hooks for canister calls",
+      "synonyms": [
+        "useQueries"
+      ],
+      "description": "Frontend query utilities/hooks for organizing canister queries and caching patterns (useQueries).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Build/deploy template for ICP project structure",
+      "synonyms": [
+        "build template",
+        "Dockerfile template",
+        "icp.yaml"
+      ],
+      "description": "Build template files (Dockerfile, deploy scripts, canister.yaml, workspace configs) enabling reproducible builds and deployment flow.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Generated frontend brand assets pipeline",
+      "synonyms": [
+        "image generation",
+        "asset resize scripts"
+      ],
+      "description": "Scripts and generated images added (prune/resize utilities and generated hero/pattern PNGs under public/assets/generated).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Custom ESLint rules for ICP frontend constraints",
+      "synonyms": [
+        "eslint custom rules",
+        "no-bigint-in-query-keys",
+        "require-internet-identity-provider"
+      ],
+      "description": "Adds project-specific ESLint rules to enforce ICP/Internet Identity integration expectations (e.g., requiring an Internet Identity provider wiring) and to prevent using BigInt values in query keys.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Frontend StorageClient utility",
+      "synonyms": [
+        "storage abstraction",
+        "localStorage client"
+      ],
+      "description": "Utility wrapper for browser storage access (StorageClient) to centralize persistence logic used by the frontend.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "Frontend personalization panel with local persistence",
+      "synonyms": [
+        "PersonalizationPanel",
+        "UI personalization",
+        "local settings"
+      ],
+      "description": "Adds a PersonalizationPanel UI with default personalization configuration and a useLocalStorageState-based persistence layer (via StorageClient/localStorage) to save and restore user UI preferences across sessions.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-personalization-option-from-the-website-ui-by-eliminating-the-personalizationpanel-entry-point-the-fixed-personalize-button-and-its-sheet-so-users-can-no-longer-open-or-use-personalization-controls",
+      "title": "Remove the personalization option from the website UI by eliminating the PersonalizationPanel entry point (the fixed “Personalize” button and its sheet) so users can no longer open or use personalization controls.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-interactive-yes-and-no-response-buttons-with-playful-behavior-clicking-yes-shows-a-celebratory-success-state-clicking-no-shows-a-playful-alternate-reaction-that-encourages-another-choice-without-blocking-navigation-or-breaking-accessibility",
-      "title": "Add interactive “Yes” and “No” response buttons with playful behavior: clicking “Yes” shows a celebratory success state; clicking “No” shows a playful alternate reaction that encourages another choice without blocking navigation or breaking accessibility.",
+      "id": "feature-remove-the-dependency-on-personalization-state-and-local-persistence-so-the-valentine-page-renders-with-fixed-copy-and-behavior-without-reading-from-or-writing-to-localstorage-including-removing-uselocalstoragestate-usage-for-personalization-settings",
+      "title": "Remove the dependency on personalization state and local persistence so the Valentine page renders with fixed copy and behavior without reading from or writing to localStorage (including removing useLocalStorageState usage for personalization settings).",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-establish-and-apply-a-coherent-distinctive-visual-theme-for-the-entire-site-colors-typography-spacing-and-components-with-a-valentine-pizza-fizza-vibe-avoid-a-blue-purple-dominant-palette",
-      "title": "Establish and apply a coherent, distinctive visual theme for the entire site (colors, typography, spacing, and components) with a Valentine + pizza (“fizza”) vibe; avoid a blue/purple-dominant palette.",
+      "id": "feature-remove-the-word-flower-and-plural-forms-like-flowers-from-all-user-facing-website-text-and-attributes-including-but-not-limited-to-subtitles-success-state-copy-and-image-alt-text-replacing-those-lines-with-equivalent-valentine-themed-wording-that-does-not-include-the-word-flower",
+      "title": "Remove the word “flower” (and plural forms like “flowers”) from all user-facing website text and attributes, including but not limited to subtitles, success-state copy, and image alt text, replacing those lines with equivalent Valentine-themed wording that does not include the word “flower”.",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-the-page-e-g-hero-illustration-and-subtle-background-pattern",
-      "title": "Add the required generated images as static assets under frontend/public/assets/generated and render them in the page (e.g., hero illustration and subtle background pattern).",
-      "reqIds": [
-        "REQ-4"
       ],
       "version": 1
     }
@@ -39,31 +143,42 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Build a \"Will you be my valentine fizza\" (valentine-themed) website.",
+      "summary": "Remove the personalization option from the Valentine website UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Remove the word \"flower\" from the Valentine website content/theme text",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "architectural_notes": [],
+  "architectural_notes": [
+    "Project uses a two-canister layout (backend + frontend assets) with generated Candid/TypeScript declarations for typed frontend interaction.",
+    "Frontend authentication is handled via Internet Identity; actor creation is abstracted into hooks to enable authenticated/anonymous calls.",
+    "Frontend build is Vite-based with Tailwind and shadcn/ui; component sources are vendored into the repo under src/components/ui.",
+    "Asset pipeline includes scripts to resize/prune generated images and stores outputs under frontend/public/assets/generated.",
+    "Frontend codebase includes custom ESLint rules to enforce ICP-specific constraints (e.g., Internet Identity provider wiring and query-key BigInt restrictions).",
+    "Frontend includes a personalization system (defaults + UI panel) with state persisted locally (useLocalStorageState + StorageClient/localStorage)."
+  ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Cute heart-shaped pepperoni pizza illustration with Valentine motifs (fizza-hero.dim_1200x800.png)\n- Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle (fizza-pattern.dim_1024x1024.png)",
   "generatedImages": [
     {
-      "filename": "fizza-hero.dim_1200x800.png",
-      "description": "Cute heart-shaped pepperoni pizza illustration with Valentine motifs",
+      "filename": "frontend/public/assets/generated/fizza-hero-romantic.dim_1200x800.png",
+      "description": "Generated hero image asset (romantic variant, 1200x800).",
       "targetWidth": 1200,
       "targetHeight": 800
     },
     {
-      "filename": "fizza-pattern.dim_1024x1024.png",
-      "description": "Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle",
+      "filename": "frontend/public/assets/generated/fizza-pattern-romantic.dim_1024x1024.png",
+      "description": "Generated pattern/texture asset (romantic variant, 1024x1024).",
       "targetWidth": 1024,
       "targetHeight": 1024
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Will you be my valentine fizza",
+  "projectName": "Remove personalization UI and remove the word “flower” from all site text",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

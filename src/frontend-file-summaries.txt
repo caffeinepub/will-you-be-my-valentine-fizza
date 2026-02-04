@@ -1,6 +1,11 @@
 {
-  "frontend/src/App.tsx": "Main single-page Valentine \"fizza\" application with interactive Yes/No buttons, playful No-button movement, celebration state on Yes, and dynamic messaging with accessible keyboard navigation and ARIA live regions.",
-  "frontend/src/index.css": "Global styles with Valentine + pizza themed OKLCH color system (warm reds, tomato, cream, basil green), custom animations (float, bounce-in, celebration, spin-slow), and both light and dark mode support.",
+  "frontend/src/App.tsx": "Main Valentine application with fixed FIZZA headline, romantic theme, interactive Yes/No buttons with subtle movement behavior, and celebratory animation on success state without personalization options or references to the word \"flower\".",
+  "frontend/src/index.css": "Global styles with OKLCH color system, three theme presets (cute, romantic, playful), and custom keyframe animations including float-up and confetti-fall for celebration effects.",
   "frontend/tailwind.config.js": "Extended Tailwind configuration with custom Valentine color tokens (love, tomato, cream, basil), display font family, increased border radius, and custom keyframe animations for interactive elements.",
-  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend has no methods and all state is managed locally in the frontend."
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend has no methods and all state is managed locally in the frontend.",
+  "frontend/src/lib/personalizationDefaults.ts": "Defines TypeScript types and default values for all personalization settings with \"Fizza\" as recipient name, romantic theme preset, and Valentine-themed copy with hearts and flowers.",
+  "frontend/src/hooks/useLocalStorageState.ts": "Custom React hook that manages state synchronized with localStorage, providing read/write/clear operations with JSON serialization and error handling.",
+  "frontend/src/components/PersonalizationPanel.tsx": "Accessible Sheet-based personalization UI with form controls for editing message text, selecting theme presets, and configuring No-button movement behavior with apply and reset actions.",
+  "frontend/index.html": "HTML entry point with updated romantic Valentine title referencing Fizza with proper capitalization and heart symbol.",
+  "frontend/src/components/CelebrationEffect.tsx": "Self-contained overlay component that renders floating hearts and confetti particles with randomized positions, delays, and animations for the success celebration screen."
 }

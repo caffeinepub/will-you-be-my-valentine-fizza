@@ -1,98 +1,73 @@
 {
   "kind": "build_request",
-  "title": "Valentine-themed “Will you be my valentine fizza?” website",
+  "title": "Remove personalization UI and remove the word “flower” from all site text",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a single-page Valentine-themed website that prominently displays the message “Will you be my valentine fizza?” and a short subtitle/instruction in English.",
+      "text": "Remove the personalization option from the website UI by eliminating the PersonalizationPanel entry point (the fixed “Personalize” button and its sheet) so users can no longer open or use personalization controls.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Create a will you be my valentine fizza website"
+          "Remove personalisation option and word “flower” from the website"
         ]
       },
       "acceptanceCriteria": [
-        "On load, the page clearly shows the headline text “Will you be my valentine fizza?”",
-        "All user-facing text is in English",
-        "The page works on mobile and desktop and fits without horizontal scrolling"
+        "The “Personalize” button is not visible anywhere in the app (idle state and success state).",
+        "The personalization sheet cannot be opened via any UI control.",
+        "No personalization UI components are rendered in App.tsx."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add interactive “Yes” and “No” response buttons with playful behavior: clicking “Yes” shows a celebratory success state; clicking “No” shows a playful alternate reaction that encourages another choice without blocking navigation or breaking accessibility.",
+      "text": "Remove the dependency on personalization state and local persistence so the Valentine page renders with fixed copy and behavior without reading from or writing to localStorage (including removing useLocalStorageState usage for personalization settings).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Create a will you be my valentine fizza website"
+          "Remove personalisation option and word “flower” from the website"
         ]
       },
       "acceptanceCriteria": [
-        "There are clearly labeled “Yes” and “No” buttons",
-        "Clicking “Yes” transitions to a visible success/celebration state (e.g., message + animation)",
-        "Clicking “No” triggers a playful non-destructive reaction (e.g., message change and/or button movement)",
-        "Keyboard navigation works (Tab/Enter/Space) and buttons have visible focus states"
+        "App.tsx does not use the 'valentine-personalization' localStorage key.",
+        "The page still displays the two-line headline (name line + “Will you be my Valentine”) and the Yes/No interaction continues to work.",
+        "Theme selection via personalization no longer affects the UI (use a single default theme consistently)."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Establish and apply a coherent, distinctive visual theme for the entire site (colors, typography, spacing, and components) with a Valentine + pizza (“fizza”) vibe; avoid a blue/purple-dominant palette.",
+      "text": "Remove the word “flower” (and plural forms like “flowers”) from all user-facing website text and attributes, including but not limited to subtitles, success-state copy, and image alt text, replacing those lines with equivalent Valentine-themed wording that does not include the word “flower”.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "Create a will you be my valentine fizza website"
+          "Remove personalisation option and word “flower” from the website"
         ]
       },
       "acceptanceCriteria": [
-        "A consistent design system is apparent across layout, buttons, and text",
-        "The palette is not predominantly blue/purple",
-        "Typography and spacing are consistent across screen sizes"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Add the required generated images as static assets under frontend/public/assets/generated and render them in the page (e.g., hero illustration and subtle background pattern).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Create a will you be my valentine fizza website"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Images exist under frontend/public/assets/generated with the specified filenames",
-        "The page visibly uses the hero illustration and background pattern",
-        "Images load correctly in production build (no backend routing for images)"
+        "No visible UI copy contains the word “flower” or “flowers”.",
+        "The hero image alt text does not contain the word “flower” or “flowers”.",
+        "Success-state card copy that currently references “Flowers” is rewritten to exclude the word while preserving a romantic tone."
       ]
     }
   ],
   "constraints": [
-    "Use English for all user-facing text",
-    "Frontend must be built with React + TypeScript, Tailwind, Shadcn UI composition, and React Query where needed",
-    "Do not edit files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT",
-    "Backend is single-actor Motoko; do not introduce additional backend services"
+    "Do not edit any files under frontend/src/components/ui (read-only shadcn/ui sources).",
+    "Keep backend as single-actor Motoko architecture; do not add backend features unless required by the UI change."
   ],
   "nonGoals": [
-    "User accounts or authentication flows",
-    "Persisting responses on-chain or storing user data",
-    "Multi-page routing or a complex admin/editor interface"
+    "Do not add new features (e.g., background music toggles, new settings, or new pages).",
+    "Do not change or regenerate the existing generated image assets unless explicitly requested."
   ],
   "imageRequirements": {
-    "required": [
-      "Cute heart-shaped pepperoni pizza illustration with Valentine motifs (fizza-hero.dim_1200x800.png)",
-      "Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle (fizza-pattern.dim_1024x1024.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

@@ -1,90 +1,68 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine-themed “Will you be my valentine fizza?” single-page site",
+  "title": "Remove personalization UI and flower wording",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Implement a responsive single-page layout that prominently displays the headline and an English subtitle/instruction.",
+      "summary": "Remove the PersonalizationPanel entry point so users cannot access any personalization UI.",
       "acceptanceCriteria": [
-        "On load, the page clearly shows the headline text “Will you be my valentine fizza?”",
-        "All user-facing text is in English",
-        "The page works on mobile and desktop and fits without horizontal scrolling"
+        "The “Personalize” button is not visible anywhere in the app (idle state and success state).",
+        "The personalization sheet cannot be opened via any UI control.",
+        "No personalization UI components are rendered in App.tsx."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the single-page React + TypeScript view that renders the headline “Will you be my valentine fizza?” plus an English subtitle/instruction, with a responsive layout that avoids horizontal scrolling. Use Shadcn UI composition patterns (token-based styling and reusable UI building blocks). Verify the component's usage instructions before implementing."
+          "operation": "modify",
+          "description": "Remove the PersonalizationPanel import and remove all rendered PersonalizationPanel JSX so the fixed “Personalize” button and sheet are no longer present in both idle and success states."
+        },
+        {
+          "path": "frontend/src/components/PersonalizationPanel.tsx",
+          "operation": "delete",
+          "description": "Delete the PersonalizationPanel component source so there is no remaining UI entry point for personalization."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add accessible interactive Yes/No buttons where Yes shows a celebration state and No triggers a playful, non-destructive reaction.",
+      "summary": "Remove personalization state and localStorage persistence so the Valentine page uses fixed copy/behavior with a single default theme.",
       "acceptanceCriteria": [
-        "There are clearly labeled “Yes” and “No” buttons",
-        "Clicking “Yes” transitions to a visible success/celebration state (e.g., message + animation)",
-        "Clicking “No” triggers a playful non-destructive reaction (e.g., message change and/or button movement)",
-        "Keyboard navigation works (Tab/Enter/Space) and buttons have visible focus states"
+        "App.tsx does not use the 'valentine-personalization' localStorage key.",
+        "The page still displays the two-line headline (name line + “Will you be my Valentine”) and the Yes/No interaction continues to work.",
+        "Theme selection via personalization no longer affects the UI (use a single default theme consistently)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Add state-driven Yes/No interactions: Yes transitions to a clear success/celebration UI state; No triggers a playful alternate reaction (e.g., changing helper text, gently repositioning/animating the No button, or swapping microcopy) while keeping the page usable and accessible. Ensure button semantics, visible focus styles, and an accessible announcement area (e.g., aria-live) for reaction text. Use Shadcn UI composition patterns for buttons and celebratory UI elements. Verify the component's usage instructions before implementing."
+          "description": "Remove useLocalStorageState usage and all personalization-derived settings. Replace with fixed in-component constants for recipient name, default subtitle, success headline/message, and No-button behavior. Set a single consistent theme (e.g., set document data-theme once on mount) without reading from or writing to localStorage, while keeping the existing Yes/No interaction behavior."
         },
         {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind animation/keyframes to support the celebratory success motion and the playful non-destructive No reaction (e.g., subtle wiggle/bounce/float) while keeping focus visibility intact. Verify the component's usage instructions before implementing."
+          "path": "frontend/src/hooks/useLocalStorageState.ts",
+          "operation": "delete",
+          "description": "Remove the localStorage state hook since it is no longer used after eliminating personalization persistence."
+        },
+        {
+          "path": "frontend/src/lib/personalizationDefaults.ts",
+          "operation": "delete",
+          "description": "Remove personalization defaults/types since personalization settings are no longer used by the app."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Define and apply a coherent Valentine + pizza (“fizza”) visual theme across the whole site, avoiding a blue/purple-dominant palette.",
+      "summary": "Remove the word “flower”/“flowers” from all user-facing text and attributes, replacing with equivalent Valentine-themed wording.",
       "acceptanceCriteria": [
-        "A consistent design system is apparent across layout, buttons, and text",
-        "The palette is not predominantly blue/purple",
-        "Typography and spacing are consistent across screen sizes"
+        "No visible UI copy contains the word “flower” or “flowers”.",
+        "The hero image alt text does not contain the word “flower” or “flowers”.",
+        "Success-state card copy that currently references “Flowers” is rewritten to exclude the word while preserving a romantic tone."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Create the global Tailwind + theme tokens stylesheet (as imported by frontend/src/main.tsx). Define a cohesive Valentine + pizza palette (e.g., warm reds, tomato, cream, basil green accents), typography, spacing, and consistent focus ring styling using token-based values compatible with Shadcn UI composition. Ensure styling remains responsive and not blue/purple-dominant. Verify the component's usage instructions before implementing."
-        },
-        {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Apply the global theme consistently across layout, typography, and interactive elements (headline, subtitle, buttons, success state), using Tailwind utilities and the shared token system to keep spacing and typography consistent across breakpoints. Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add and render the required generated hero and background-pattern images as static frontend assets.",
-      "acceptanceCriteria": [
-        "Images exist under frontend/public/assets/generated with the specified filenames",
-        "The page visibly uses the hero illustration and background pattern",
-        "Images load correctly in production build (no backend routing for images)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/fizza-hero.dim_1200x800.png",
-          "operation": "create",
-          "description": "Add the generated static hero illustration asset at frontend/public/assets/generated/fizza-hero.dim_1200x800.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/fizza-pattern.dim_1024x1024.png",
-          "operation": "create",
-          "description": "Add the generated static seamless background pattern asset at frontend/public/assets/generated/fizza-pattern.dim_1024x1024.png."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Render frontend/public/assets/generated/fizza-hero.dim_1200x800.png as the main hero illustration and apply frontend/public/assets/generated/fizza-pattern.dim_1024x1024.png as a subtle repeating background/pattern in the page layout. Ensure assets are referenced as static public assets so they load in production builds. Use Shadcn UI composition patterns for layout structure. Verify the component's usage instructions before implementing."
+          "description": "Update all user-facing strings and relevant attributes to remove “flower”/“flowers”, including: the dynamic subtitle variants, the success-state card copy, and the hero image alt text. Ensure revised wording remains Valentine-themed and romantic while keeping the existing interaction flow intact."
         }
       ]
     }

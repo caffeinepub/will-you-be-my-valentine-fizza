@@ -6,7 +6,7 @@
     :root {
         --radius: 1rem;
         
-        /* Valentine + Pizza color palette */
+        /* Valentine + Pizza color palette - Cute theme (default) */
         /* Warm cream background */
         --background: 0.98 0.015 45;
         --foreground: 0.25 0.03 25;
@@ -59,6 +59,74 @@
         --chart-5: 0.82 0.15 65;
     }
 
+    /* Romantic theme - Deep rose & burgundy */
+    [data-theme="romantic"] {
+        --background: 0.95 0.025 355;
+        --foreground: 0.20 0.04 355;
+        
+        --card: 0.97 0.02 355;
+        --card-foreground: 0.20 0.04 355;
+        
+        --popover: 0.97 0.02 355;
+        --popover-foreground: 0.20 0.04 355;
+        
+        --primary: 0.45 0.18 355;
+        --primary-foreground: 0.98 0.01 355;
+        
+        --secondary: 0.88 0.03 355;
+        --secondary-foreground: 0.30 0.04 355;
+        
+        --muted: 0.90 0.02 355;
+        --muted-foreground: 0.50 0.03 355;
+        
+        --accent: 0.55 0.15 340;
+        --accent-foreground: 0.98 0.01 355;
+        
+        --border: 0.82 0.03 355;
+        --input: 0.82 0.03 355;
+        --ring: 0.45 0.18 355;
+        
+        --love: 0.50 0.22 350;
+        --love-dark: 0.38 0.20 350;
+        --tomato: 0.45 0.18 355;
+        --cream: 0.88 0.03 355;
+        --basil: 0.60 0.12 340;
+    }
+
+    /* Playful theme - Bright coral & sunshine */
+    [data-theme="playful"] {
+        --background: 0.98 0.02 65;
+        --foreground: 0.25 0.04 25;
+        
+        --card: 0.99 0.015 65;
+        --card-foreground: 0.25 0.04 25;
+        
+        --popover: 0.99 0.015 65;
+        --popover-foreground: 0.25 0.04 25;
+        
+        --primary: 0.65 0.20 35;
+        --primary-foreground: 0.99 0.01 65;
+        
+        --secondary: 0.95 0.03 75;
+        --secondary-foreground: 0.35 0.04 25;
+        
+        --muted: 0.93 0.02 65;
+        --muted-foreground: 0.55 0.03 25;
+        
+        --accent: 0.75 0.18 85;
+        --accent-foreground: 0.25 0.04 25;
+        
+        --border: 0.88 0.03 65;
+        --input: 0.88 0.03 65;
+        --ring: 0.65 0.20 35;
+        
+        --love: 0.68 0.22 25;
+        --love-dark: 0.55 0.20 25;
+        --tomato: 0.65 0.20 35;
+        --cream: 0.95 0.03 75;
+        --basil: 0.70 0.15 120;
+    }
+
     .dark {
         /* Dark mode with warm tones */
         --background: 0.18 0.03 25;
@@ -101,6 +169,34 @@
         --chart-3: 0.58 0.14 145;
         --chart-4: 0.75 0.18 45;
         --chart-5: 0.82 0.15 65;
+    }
+
+    /* Dark mode romantic theme */
+    .dark[data-theme="romantic"] {
+        --background: 0.15 0.04 355;
+        --foreground: 0.95 0.02 355;
+        
+        --card: 0.20 0.04 355;
+        --card-foreground: 0.95 0.02 355;
+        
+        --love: 0.65 0.22 350;
+        --love-dark: 0.50 0.20 350;
+        --tomato: 0.60 0.20 355;
+        --cream: 0.25 0.04 355;
+    }
+
+    /* Dark mode playful theme */
+    .dark[data-theme="playful"] {
+        --background: 0.18 0.04 35;
+        --foreground: 0.96 0.02 65;
+        
+        --card: 0.22 0.04 35;
+        --card-foreground: 0.96 0.02 65;
+        
+        --love: 0.70 0.22 25;
+        --love-dark: 0.58 0.20 25;
+        --tomato: 0.68 0.20 35;
+        --cream: 0.25 0.04 45;
     }
 
     * {
@@ -162,6 +258,32 @@
         }
     }
     
+    @keyframes float-up {
+        0% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translateY(-50vh) translateX(20px) rotate(180deg);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(-10px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+    
     .animate-float {
         animation: float 3s ease-in-out infinite;
     }
@@ -176,6 +298,14 @@
     
     .animate-spin-slow {
         animation: spin-slow 4s linear infinite;
+    }
+    
+    .animate-float-up {
+        animation: float-up 4s ease-out forwards;
+    }
+    
+    .animate-confetti-fall {
+        animation: confetti-fall 3s ease-in forwards;
     }
     
     .animation-delay-300 {
