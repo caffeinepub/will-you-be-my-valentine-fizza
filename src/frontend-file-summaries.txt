@@ -1,0 +1,6 @@
+{
+  "frontend/src/App.tsx": "Main single-page Valentine \"fizza\" application with interactive Yes/No buttons, playful No-button movement, celebration state on Yes, and dynamic messaging with accessible keyboard navigation and ARIA live regions.",
+  "frontend/src/index.css": "Global styles with Valentine + pizza themed OKLCH color system (warm reds, tomato, cream, basil green), custom animations (float, bounce-in, celebration, spin-slow), and both light and dark mode support.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with custom Valentine color tokens (love, tomato, cream, basil), display font family, increased border radius, and custom keyframe animations for interactive elements.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend has no methods and all state is managed locally in the frontend."
+}

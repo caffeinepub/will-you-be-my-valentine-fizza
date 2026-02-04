@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Create a \"Will you be my valentine fizza\" website.",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-valentine-themed-website-that-prominently-displays-the-message-will-you-be-my-valentine-fizza-and-a-short-subtitle-instruction-in-english",
+      "title": "Create a single-page Valentine-themed website that prominently displays the message “Will you be my valentine fizza?” and a short subtitle/instruction in English.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-interactive-yes-and-no-response-buttons-with-playful-behavior-clicking-yes-shows-a-celebratory-success-state-clicking-no-shows-a-playful-alternate-reaction-that-encourages-another-choice-without-blocking-navigation-or-breaking-accessibility",
+      "title": "Add interactive “Yes” and “No” response buttons with playful behavior: clicking “Yes” shows a celebratory success state; clicking “No” shows a playful alternate reaction that encourages another choice without blocking navigation or breaking accessibility.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-and-apply-a-coherent-distinctive-visual-theme-for-the-entire-site-colors-typography-spacing-and-components-with-a-valentine-pizza-fizza-vibe-avoid-a-blue-purple-dominant-palette",
+      "title": "Establish and apply a coherent, distinctive visual theme for the entire site (colors, typography, spacing, and components) with a Valentine + pizza (“fizza”) vibe; avoid a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-the-page-e-g-hero-illustration-and-subtle-background-pattern",
+      "title": "Add the required generated images as static assets under frontend/public/assets/generated and render them in the page (e.g., hero illustration and subtle background pattern).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a \"Will you be my valentine fizza\" (valentine-themed) website.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Cute heart-shaped pepperoni pizza illustration with Valentine motifs (fizza-hero.dim_1200x800.png)\n- Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle (fizza-pattern.dim_1024x1024.png)",
+  "generatedImages": [
+    {
+      "filename": "fizza-hero.dim_1200x800.png",
+      "description": "Cute heart-shaped pepperoni pizza illustration with Valentine motifs",
+      "targetWidth": 1200,
+      "targetHeight": 800
+    },
+    {
+      "filename": "fizza-pattern.dim_1024x1024.png",
+      "description": "Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Will you be my valentine fizza",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

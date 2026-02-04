@@ -1,0 +1,15 @@
+{
+  "backend/main.mo": "Defines an empty Motoko actor with no methods, serving as a placeholder backend.",
+  "feature_evidence.json": "Structured report mapping implemented Valentine-themed frontend features to files, components, test IDs, and confidence levels.",
+  "frontend-file-summaries.txt": "Human-readable index summarizing the purpose of key frontend source files and configuration.",
+  "frontend/index.css": "Tailwind base stylesheet defining CSS variables for layout, borders, charts, and light/dark theme tokens.",
+  "frontend/index.html": "HTML entry point that sets metadata, page title, and mounts the React app at the root element.",
+  "frontend/src/App.tsx": "Main single-page React component implementing the Valentine \"fizza\" experience with interactive Yes/No buttons, playful No behavior, and a celebratory Yes state using themed visuals and animations.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an authenticated or anonymous backend actor using Internet Identity and React Query.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a context and hooks for managing Internet Identity authentication state, login, logout, and identity persistence.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder hook file indicating no backend queries are required and all state is handled locally.",
+  "frontend/src/index.css": "Global Tailwind CSS defining the Valentine + pizza visual theme with OKLCH colors, custom animations, typography, and light/dark mode support.",
+  "frontend/src/main.tsx": "Application bootstrap that renders the React app with React Query and Internet Identity providers and loads global styles.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration enabling class-based dark mode, scanning frontend sources, and extending the theme with OKLCH-based design tokens, Valentine/pizza custom colors, fonts, radii, shadows, and animations. Includes plugins for typography, container queries, and animations.",
+  "project_state.json": "Defines the project metadata and requirements for a single-page Valentine-themed \"Will you be my valentine fizza\" website, including interactive buttons, visual theme goals, and required generated images. Tracks existing features, pending requests, image specs, and overall project state."
+}

@@ -1,0 +1,98 @@
+{
+  "kind": "build_request",
+  "title": "Valentine-themed “Will you be my valentine fizza?” website",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page Valentine-themed website that prominently displays the message “Will you be my valentine fizza?” and a short subtitle/instruction in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a will you be my valentine fizza website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On load, the page clearly shows the headline text “Will you be my valentine fizza?”",
+        "All user-facing text is in English",
+        "The page works on mobile and desktop and fits without horizontal scrolling"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add interactive “Yes” and “No” response buttons with playful behavior: clicking “Yes” shows a celebratory success state; clicking “No” shows a playful alternate reaction that encourages another choice without blocking navigation or breaking accessibility.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a will you be my valentine fizza website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There are clearly labeled “Yes” and “No” buttons",
+        "Clicking “Yes” transitions to a visible success/celebration state (e.g., message + animation)",
+        "Clicking “No” triggers a playful non-destructive reaction (e.g., message change and/or button movement)",
+        "Keyboard navigation works (Tab/Enter/Space) and buttons have visible focus states"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Establish and apply a coherent, distinctive visual theme for the entire site (colors, typography, spacing, and components) with a Valentine + pizza (“fizza”) vibe; avoid a blue/purple-dominant palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a will you be my valentine fizza website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent design system is apparent across layout, buttons, and text",
+        "The palette is not predominantly blue/purple",
+        "Typography and spacing are consistent across screen sizes"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add the required generated images as static assets under frontend/public/assets/generated and render them in the page (e.g., hero illustration and subtle background pattern).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a will you be my valentine fizza website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Images exist under frontend/public/assets/generated with the specified filenames",
+        "The page visibly uses the hero illustration and background pattern",
+        "Images load correctly in production build (no backend routing for images)"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text",
+    "Frontend must be built with React + TypeScript, Tailwind, Shadcn UI composition, and React Query where needed",
+    "Do not edit files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT",
+    "Backend is single-actor Motoko; do not introduce additional backend services"
+  ],
+  "nonGoals": [
+    "User accounts or authentication flows",
+    "Persisting responses on-chain or storing user data",
+    "Multi-page routing or a complex admin/editor interface"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Cute heart-shaped pepperoni pizza illustration with Valentine motifs (fizza-hero.dim_1200x800.png)",
+      "Seamless repeating background pattern of tiny hearts and pizza doodles, light and subtle (fizza-pattern.dim_1024x1024.png)"
+    ],
+    "edits": []
+  }
+}

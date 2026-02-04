@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1rem;
+        
+        /* Valentine + Pizza color palette */
+        /* Warm cream background */
+        --background: 0.98 0.015 45;
+        --foreground: 0.25 0.03 25;
+        
+        /* Card colors */
+        --card: 0.99 0.01 45;
+        --card-foreground: 0.25 0.03 25;
+        
+        /* Popover */
+        --popover: 0.99 0.01 45;
+        --popover-foreground: 0.25 0.03 25;
+        
+        /* Tomato red primary */
+        --primary: 0.58 0.21 25;
+        --primary-foreground: 0.99 0.01 45;
+        
+        /* Light cream secondary */
+        --secondary: 0.96 0.02 55;
+        --secondary-foreground: 0.35 0.04 25;
+        
+        /* Muted tones */
+        --muted: 0.94 0.015 45;
+        --muted-foreground: 0.55 0.02 25;
+        
+        /* Accent - basil green */
+        --accent: 0.65 0.12 145;
+        --accent-foreground: 0.99 0.01 45;
+        
+        /* Destructive - kept for UI consistency */
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.99 0.01 45;
+        
+        /* Borders and inputs */
+        --border: 0.88 0.02 35;
+        --input: 0.88 0.02 35;
+        --ring: 0.58 0.21 25;
+        
+        /* Custom Valentine colors */
+        --love: 0.62 0.24 15;
+        --love-dark: 0.48 0.22 15;
+        --tomato: 0.58 0.21 25;
+        --cream: 0.96 0.02 55;
+        --basil: 0.65 0.12 145;
+        
+        /* Charts */
+        --chart-1: 0.62 0.24 15;
+        --chart-2: 0.58 0.21 25;
+        --chart-3: 0.65 0.12 145;
+        --chart-4: 0.75 0.18 45;
+        --chart-5: 0.82 0.15 65;
+    }
+
+    .dark {
+        /* Dark mode with warm tones */
+        --background: 0.18 0.03 25;
+        --foreground: 0.96 0.015 45;
+        
+        --card: 0.22 0.03 25;
+        --card-foreground: 0.96 0.015 45;
+        
+        --popover: 0.22 0.03 25;
+        --popover-foreground: 0.96 0.015 45;
+        
+        --primary: 0.68 0.22 20;
+        --primary-foreground: 0.98 0.01 45;
+        
+        --secondary: 0.28 0.03 25;
+        --secondary-foreground: 0.96 0.015 45;
+        
+        --muted: 0.28 0.03 25;
+        --muted-foreground: 0.65 0.02 25;
+        
+        --accent: 0.55 0.14 145;
+        --accent-foreground: 0.98 0.01 45;
+        
+        --destructive: 0.62 0.24 20;
+        --destructive-foreground: 0.98 0.01 45;
+        
+        --border: 0.32 0.03 25;
+        --input: 0.32 0.03 25;
+        --ring: 0.68 0.22 20;
+        
+        /* Custom Valentine colors for dark mode */
+        --love: 0.68 0.24 15;
+        --love-dark: 0.55 0.22 15;
+        --tomato: 0.68 0.21 25;
+        --cream: 0.28 0.03 35;
+        --basil: 0.58 0.14 145;
+        
+        --chart-1: 0.68 0.24 15;
+        --chart-2: 0.68 0.21 25;
+        --chart-3: 0.58 0.14 145;
+        --chart-4: 0.75 0.18 45;
+        --chart-5: 0.82 0.15 65;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+}
+
+@layer utilities {
+    /* Custom animations */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+    
+    @keyframes bounce-in {
+        0% {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        70% {
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes celebration {
+        0%, 100% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.02) rotate(1deg);
+        }
+        75% {
+            transform: scale(1.02) rotate(-1deg);
+        }
+    }
+    
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-bounce-in {
+        animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .animate-celebration {
+        animation: celebration 2s ease-in-out infinite;
+    }
+    
+    .animate-spin-slow {
+        animation: spin-slow 4s linear infinite;
+    }
+    
+    .animation-delay-300 {
+        animation-delay: 0.3s;
+    }
+    
+    .animation-delay-600 {
+        animation-delay: 0.6s;
+    }
+}
