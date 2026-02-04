@@ -2,11 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-personalization-option-from-the-website-ui-by-eliminating-the-personalizationpanel-entry-point-the-fixed-personalize-button-and-its-sheet-so-users-can-no-longer-open-or-use-personalization-controls",
-      "featureTitle": "Remove the personalization option from the website UI by eliminating the PersonalizationPanel entry point (the fixed “Personalize” button and its sheet) so users can no longer open or use personalization controls.",
+      "featureId": "feature-add-a-gentle-fade-in-animation-for-the-romantic-hero-image-on-the-main-pre-yes-screen-so-the-image-smoothly-appears-on-initial-render",
+      "featureTitle": "Add a gentle fade-in animation for the romantic hero image on the main (pre-Yes) screen so the image smoothly appears on initial render.",
       "files": [
         "frontend/src/App.tsx",
-        "frontend/src/components/PersonalizationPanel.tsx"
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,45 +16,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-remove-the-dependency-on-personalization-state-and-local-persistence-so-the-valentine-page-renders-with-fixed-copy-and-behavior-without-reading-from-or-writing-to-localstorage-including-removing-uselocalstoragestate-usage-for-personalization-settings",
-      "featureTitle": "Remove the dependency on personalization state and local persistence so the Valentine page renders with fixed copy and behavior without reading from or writing to localStorage (including removing useLocalStorageState usage for personalization settings).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/hooks/useLocalStorageState.ts",
-        "frontend/src/lib/personalizationDefaults.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-remove-the-word-flower-and-plural-forms-like-flowers-from-all-user-facing-website-text-and-attributes-including-but-not-limited-to-subtitles-success-state-copy-and-image-alt-text-replacing-those-lines-with-equivalent-valentine-themed-wording-that-does-not-include-the-word-flower",
-      "featureTitle": "Remove the word “flower” (and plural forms like “flowers”) from all user-facing website text and attributes, including but not limited to subtitles, success-state copy, and image alt text, replacing those lines with equivalent Valentine-themed wording that does not include the word “flower”.",
-      "files": [
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
+        "REQ-4"
       ],
       "confidence": "high"
     }

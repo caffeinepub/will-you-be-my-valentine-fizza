@@ -1,68 +1,27 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove personalization UI and flower wording",
+  "title": "Gentle fade-in for romantic hero image (pre-Yes screen)",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Remove the PersonalizationPanel entry point so users cannot access any personalization UI.",
+      "id": "REQ-4",
+      "summary": "Add a subtle fade-in on initial render for the romantic hero image while preserving the existing floating motion, with reduced-motion support.",
       "acceptanceCriteria": [
-        "The “Personalize” button is not visible anywhere in the app (idle state and success state).",
-        "The personalization sheet cannot be opened via any UI control.",
-        "No personalization UI components are rendered in App.tsx."
+        "When the app first loads on the main prompt screen, the hero image fades in smoothly (not an abrupt appearance).",
+        "The fade-in is subtle and does not distract from the existing layout or interactions.",
+        "The existing floating motion on the hero image remains (fade-in should not remove the current float effect).",
+        "If the user has reduced-motion enabled, the fade-in animation is disabled or minimized."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Remove the PersonalizationPanel import and remove all rendered PersonalizationPanel JSX so the fixed “Personalize” button and sheet are no longer present in both idle and success states."
+          "description": "Add a dedicated hero-image animation utility (e.g., a combined fade-in + float animation) that runs the fade-in once on initial render while keeping the existing float loop; include a prefers-reduced-motion override that disables or minimizes the fade-in (and reduces overall motion)."
         },
-        {
-          "path": "frontend/src/components/PersonalizationPanel.tsx",
-          "operation": "delete",
-          "description": "Delete the PersonalizationPanel component source so there is no remaining UI entry point for personalization."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Remove personalization state and localStorage persistence so the Valentine page uses fixed copy/behavior with a single default theme.",
-      "acceptanceCriteria": [
-        "App.tsx does not use the 'valentine-personalization' localStorage key.",
-        "The page still displays the two-line headline (name line + “Will you be my Valentine”) and the Yes/No interaction continues to work.",
-        "Theme selection via personalization no longer affects the UI (use a single default theme consistently)."
-      ],
-      "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Remove useLocalStorageState usage and all personalization-derived settings. Replace with fixed in-component constants for recipient name, default subtitle, success headline/message, and No-button behavior. Set a single consistent theme (e.g., set document data-theme once on mount) without reading from or writing to localStorage, while keeping the existing Yes/No interaction behavior."
-        },
-        {
-          "path": "frontend/src/hooks/useLocalStorageState.ts",
-          "operation": "delete",
-          "description": "Remove the localStorage state hook since it is no longer used after eliminating personalization persistence."
-        },
-        {
-          "path": "frontend/src/lib/personalizationDefaults.ts",
-          "operation": "delete",
-          "description": "Remove personalization defaults/types since personalization settings are no longer used by the app."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Remove the word “flower”/“flowers” from all user-facing text and attributes, replacing with equivalent Valentine-themed wording.",
-      "acceptanceCriteria": [
-        "No visible UI copy contains the word “flower” or “flowers”.",
-        "The hero image alt text does not contain the word “flower” or “flowers”.",
-        "Success-state card copy that currently references “Flowers” is rewritten to exclude the word while preserving a romantic tone."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Update all user-facing strings and relevant attributes to remove “flower”/“flowers”, including: the dynamic subtitle variants, the success-state card copy, and the hero image alt text. Ensure revised wording remains Valentine-themed and romantic while keeping the existing interaction flow intact."
+          "description": "Update the pre-Yes screen romantic hero <img> to use the new combined fade-in+float class (replacing the current float-only class) so the image smoothly appears on initial render without changing the existing Valentine Yes/No flow or the hero asset reference."
         }
       ]
     }

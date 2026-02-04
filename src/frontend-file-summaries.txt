@@ -1,6 +1,6 @@
 {
-  "frontend/src/App.tsx": "Main Valentine application with fixed FIZZA headline, romantic theme, interactive Yes/No buttons with subtle movement behavior, and celebratory animation on success state without personalization options or references to the word \"flower\".",
-  "frontend/src/index.css": "Global styles with OKLCH color system, three theme presets (cute, romantic, playful), and custom keyframe animations including float-up and confetti-fall for celebration effects.",
+  "frontend/src/App.tsx": "Main Valentine application with FIZZA headline, romantic theme, romantic hero image with gentle fade-in animation at the top, interactive Yes/No buttons with subtle movement behavior, and celebratory animation on success state displaying \"Yayy! 🥰\" as the success headline.",
+  "frontend/src/index.css": "Global styles with OKLCH color system, three theme presets (cute, romantic, playful), and custom keyframe animations including a new fade-in-float animation for the hero image with reduced-motion support, plus existing float, bounce-in, celebration, and confetti effects.",
   "frontend/tailwind.config.js": "Extended Tailwind configuration with custom Valentine color tokens (love, tomato, cream, basil), display font family, increased border radius, and custom keyframe animations for interactive elements.",
   "frontend/src/hooks/useQueries.ts": "Empty placeholder file as backend has no methods and all state is managed locally in the frontend.",
   "frontend/src/lib/personalizationDefaults.ts": "Defines TypeScript types and default values for all personalization settings with \"Fizza\" as recipient name, romantic theme preset, and Valentine-themed copy with hearts and flowers.",

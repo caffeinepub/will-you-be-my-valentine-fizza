@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the personalization UI and remove the word “flower”/“flowers” from all user-facing site text.
+**Goal:** Add a subtle fade-in animation to the romantic hero image on the main (pre-Yes) screen so it appears smoothly on initial render.
 
 **Planned changes:**
-- Remove the PersonalizationPanel entry point, including the fixed “Personalize” button and its sheet, and ensure no personalization UI components are rendered in App.tsx.
-- Remove reliance on personalization state and local persistence (stop using the `valentine-personalization` localStorage key / `useLocalStorageState`) and render the Valentine page with a single default theme.
-- Update all user-facing copy and relevant attributes (including image alt text and success-state text) to eliminate “flower”/“flowers” and replace with equivalent Valentine-themed wording.
+- Apply a gentle fade-in transition to the hero image when the main prompt screen first renders.
+- Ensure the existing floating motion animation remains active alongside the fade-in.
+- Respect reduced-motion preferences by disabling or minimizing the fade-in when reduced-motion is enabled.
 
-**User-visible outcome:** The site no longer shows any personalization controls, uses one consistent default theme, and contains no visible text (or alt text) mentioning “flower”/“flowers” while preserving the Valentine interaction and tone.
+**User-visible outcome:** On first load of the main prompt screen, the romantic hero image smoothly fades in without disrupting the existing floating effect, and users with reduced-motion enabled see no (or minimal) fade animation.

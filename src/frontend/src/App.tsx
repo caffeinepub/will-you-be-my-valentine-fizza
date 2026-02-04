@@ -12,7 +12,7 @@ function App() {
   // Fixed settings
   const recipientName = 'FIZZA';
   const defaultSubtitle = 'Click a button to answer!';
-  const successHeadline = 'Yay! 🎉';
+  const successHeadline = 'Yayy! 🥰';
   const successMessage = "You've made me the happiest person in the world! 💕";
   const noButtonMovementEnabled = true;
 
@@ -126,12 +126,12 @@ function App() {
       {/* Main content */}
       <main className="flex-1 flex items-center justify-center p-4 relative z-10">
         <div className="max-w-4xl w-full text-center">
-          {/* Hero illustration */}
+          {/* Romantic hero image with fade-in + float animation */}
           <div className="mb-8 flex justify-center">
             <img
-              src="/assets/generated/fizza-hero-romantic.dim_1200x800.png"
-              alt="Romantic hearts Valentine illustration"
-              className="max-w-full h-auto rounded-3xl shadow-2xl border-4 border-love/20 animate-float"
+              src="/assets/generated/romantic-hero-image.dim_1200x800.png"
+              alt="Romantic couple embracing with hearts and flowers"
+              className="max-w-full h-auto rounded-3xl shadow-2xl border-4 border-love/20 animate-hero-image"
               style={{ maxHeight: '400px' }}
             />
           </div>

@@ -1,70 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Remove personalization UI and remove the word “flower” from all site text",
+  "title": "Add gentle fade-in animation to the romantic hero image",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Remove the personalization option from the website UI by eliminating the PersonalizationPanel entry point (the fixed “Personalize” button and its sheet) so users can no longer open or use personalization controls.",
+      "id": "REQ-4",
+      "text": "Add a gentle fade-in animation for the romantic hero image on the main (pre-Yes) screen so the image smoothly appears on initial render.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-5"
         ],
         "quotes": [
-          "Remove personalisation option and word “flower” from the website"
+          "Ok add the animation"
         ]
       },
       "acceptanceCriteria": [
-        "The “Personalize” button is not visible anywhere in the app (idle state and success state).",
-        "The personalization sheet cannot be opened via any UI control.",
-        "No personalization UI components are rendered in App.tsx."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Remove the dependency on personalization state and local persistence so the Valentine page renders with fixed copy and behavior without reading from or writing to localStorage (including removing useLocalStorageState usage for personalization settings).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Remove personalisation option and word “flower” from the website"
-        ]
-      },
-      "acceptanceCriteria": [
-        "App.tsx does not use the 'valentine-personalization' localStorage key.",
-        "The page still displays the two-line headline (name line + “Will you be my Valentine”) and the Yes/No interaction continues to work.",
-        "Theme selection via personalization no longer affects the UI (use a single default theme consistently)."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Remove the word “flower” (and plural forms like “flowers”) from all user-facing website text and attributes, including but not limited to subtitles, success-state copy, and image alt text, replacing those lines with equivalent Valentine-themed wording that does not include the word “flower”.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Remove personalisation option and word “flower” from the website"
-        ]
-      },
-      "acceptanceCriteria": [
-        "No visible UI copy contains the word “flower” or “flowers”.",
-        "The hero image alt text does not contain the word “flower” or “flowers”.",
-        "Success-state card copy that currently references “Flowers” is rewritten to exclude the word while preserving a romantic tone."
+        "When the app first loads on the main prompt screen, the hero image fades in smoothly (not an abrupt appearance).",
+        "The fade-in is subtle and does not distract from the existing layout or interactions.",
+        "The existing floating motion on the hero image remains (fade-in should not remove the current float effect).",
+        "If the user has reduced-motion enabled, the fade-in animation is disabled or minimized."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui (read-only shadcn/ui sources).",
-    "Keep backend as single-actor Motoko architecture; do not add backend features unless required by the UI change."
+    "Do not modify files in frontend immutablePaths (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui).",
+    "Keep backend as-is (single-actor placeholder); no backend methods or state are required for this change."
   ],
   "nonGoals": [
-    "Do not add new features (e.g., background music toggles, new settings, or new pages).",
-    "Do not change or regenerate the existing generated image assets unless explicitly requested."
+    "Do not change the Valentine Yes/No flow behavior.",
+    "Do not introduce new backend queries, persistence, or Internet Identity-related changes.",
+    "Do not change or regenerate the existing hero image asset."
   ],
   "imageRequirements": {
     "required": [],

@@ -1,141 +1,185 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
-  "summary": "ICP starter application scaffolded with a Motoko backend canister and a React (Vite) + Tailwind + shadcn/ui frontend, including Internet Identity integration, actor/query hooks, build/deploy templates, generated brand assets, and a frontend personalization panel persisted to local storage.",
+  "projectStateVersion": 39,
+  "summary": "An Internet Computer (ICP) starter-style project with an (empty) Motoko backend canister and a React + Tailwind + shadcn/ui frontend that runs a fully local, interactive Valentine page for “FIZZA”. The UI presents a Yes/No prompt, makes the No button playfully move after clicks, and shows a celebratory success screen with animated hearts/confetti. Personalization UI/state and localStorage persistence have been removed/stubbed out, and the page renders with fixed copy/theme settings.",
   "existing_features": [
     {
       "id": "IF-1",
-      "title": "Motoko backend canister scaffold",
+      "title": "Motoko backend canister placeholder",
       "synonyms": [
-        "backend canister",
-        "Motoko canister"
+        "ICP backend canister",
+        "Motoko actor"
       ],
-      "description": "Base Motoko backend (main.mo) with generated Candid bindings and frontend declarations wired for local/dev deployment.",
+      "description": "Defines a Motoko `actor {}` with no exposed methods, effectively making the backend a placeholder while the app behaves as a frontend-only experience.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-2",
-      "title": "React (Vite) + Tailwind frontend scaffold",
+      "title": "React frontend entrypoint with providers",
       "synonyms": [
-        "Vite frontend",
-        "React UI"
+        "Vite React app",
+        "main.tsx bootstrap"
       ],
-      "description": "Frontend app bootstrap with Vite, Tailwind styling, shared config, and base App/main entrypoints.",
+      "description": "Bootstraps the React app and wraps it with React Query’s QueryClientProvider and an InternetIdentityProvider, enabling cached data flows and authentication context throughout the UI.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-3",
-      "title": "shadcn/ui component library included",
+      "title": "TailwindCSS + shadcn/ui component styling",
       "synonyms": [
-        "UI component kit",
+        "Tailwind UI",
         "shadcn components"
       ],
-      "description": "Large set of prebuilt shadcn/ui components added under src/components/ui and configured for the project.",
+      "description": "Uses TailwindCSS (with plugins like typography/container-queries/animate) and shadcn/ui components (e.g., Button, Card) to implement the application’s design system and layout.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-4",
-      "title": "Internet Identity authentication integration",
+      "title": "Internet Identity authentication context",
       "synonyms": [
         "II login",
-        "Internet Identity"
+        "InternetIdentityProvider"
       ],
-      "description": "Hooks/utilities for Internet Identity login and authenticated canister actor creation (useInternetIdentity, useActor).",
+      "description": "Implements an authentication provider and hook that initializes AuthClient, restores persisted identity when available, supports login/logout, and exposes status flags for UI control.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-5",
-      "title": "Query and state hooks for canister calls",
+      "title": "Backend actor creation hook (react-query cached)",
       "synonyms": [
-        "useQueries"
+        "useActor",
+        "actor factory"
       ],
-      "description": "Frontend query utilities/hooks for organizing canister queries and caching patterns (useQueries).",
+      "description": "Creates an anonymous or authenticated backend actor based on the current Internet Identity, caches it via react-query, and invalidates/refetches other queries when the actor changes.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-6",
-      "title": "Build/deploy template for ICP project structure",
+      "title": "Valentine prompt interaction (Yes/No flow)",
       "synonyms": [
-        "build template",
-        "Dockerfile template",
-        "icp.yaml"
+        "Valentine page",
+        "Yes/No experience"
       ],
-      "description": "Build template files (Dockerfile, deploy scripts, canister.yaml, workspace configs) enabling reproducible builds and deployment flow.",
+      "description": "Renders a Valentine prompt for a fixed recipient name (“FIZZA”), shows dynamic subtitle text based on user interaction, and transitions to a success state when the user clicks Yes.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-7",
-      "title": "Generated frontend brand assets pipeline",
+      "title": "Playful No-button behavior",
       "synonyms": [
-        "image generation",
-        "asset resize scripts"
+        "moving No button",
+        "No click escalation"
       ],
-      "description": "Scripts and generated images added (prune/resize utilities and generated hero/pattern PNGs under public/assets/generated).",
+      "description": "Tracks No clicks and updates the No button label progressively; after No clicks, the button subtly repositions using randomized offsets to make refusal harder and the experience playful.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-8",
-      "title": "Custom ESLint rules for ICP frontend constraints",
+      "title": "Celebration overlay (hearts + confetti)",
       "synonyms": [
-        "eslint custom rules",
-        "no-bigint-in-query-keys",
-        "require-internet-identity-provider"
+        "CelebrationEffect",
+        "success animation"
       ],
-      "description": "Adds project-specific ESLint rules to enforce ICP/Internet Identity integration expectations (e.g., requiring an Internet Identity provider wiring) and to prevent using BigInt values in query keys.",
+      "description": "On success, displays a full-screen overlay with animated floating heart icons and falling confetti pieces using randomized positions, delays, durations, and CSS keyframe animations.",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-9",
-      "title": "Frontend StorageClient utility",
+      "title": "Theme tokens and presets via CSS variables",
       "synonyms": [
-        "storage abstraction",
-        "localStorage client"
+        "OKLCH theming",
+        "data-theme presets"
       ],
-      "description": "Utility wrapper for browser storage access (StorageClient) to centralize persistence logic used by the frontend.",
+      "description": "Defines an OKLCH-based color system with multiple theme presets (including a romantic preset) and applies the chosen theme by setting `data-theme` on the document root; includes custom animation utilities (float, bounce-in, celebration, float-up, confetti-fall).",
       "reqIds": [],
       "version": 1
     },
     {
       "id": "IF-10",
-      "title": "Frontend personalization panel with local persistence",
+      "title": "Personalization and local persistence removed (fixed settings)",
       "synonyms": [
-        "PersonalizationPanel",
-        "UI personalization",
-        "local settings"
+        "no personalization",
+        "no localStorage settings"
       ],
-      "description": "Adds a PersonalizationPanel UI with default personalization configuration and a useLocalStorageState-based persistence layer (via StorageClient/localStorage) to save and restore user UI preferences across sessions.",
-      "reqIds": [],
-      "version": 1
-    },
-    {
-      "id": "feature-remove-the-personalization-option-from-the-website-ui-by-eliminating-the-personalizationpanel-entry-point-the-fixed-personalize-button-and-its-sheet-so-users-can-no-longer-open-or-use-personalization-controls",
-      "title": "Remove the personalization option from the website UI by eliminating the PersonalizationPanel entry point (the fixed “Personalize” button and its sheet) so users can no longer open or use personalization controls.",
+      "description": "The experience no longer exposes personalization controls or persists settings; recipient name, subtitle defaults, theme, and button behavior are fixed in App state, and prior personalization modules are stubbed/empty.",
       "reqIds": [
-        "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-remove-the-dependency-on-personalization-state-and-local-persistence-so-the-valentine-page-renders-with-fixed-copy-and-behavior-without-reading-from-or-writing-to-localstorage-including-removing-uselocalstoragestate-usage-for-personalization-settings",
-      "title": "Remove the dependency on personalization state and local persistence so the Valentine page renders with fixed copy and behavior without reading from or writing to localStorage (including removing useLocalStorageState usage for personalization settings).",
-      "reqIds": [
+        "REQ-1",
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-remove-the-word-flower-and-plural-forms-like-flowers-from-all-user-facing-website-text-and-attributes-including-but-not-limited-to-subtitles-success-state-copy-and-image-alt-text-replacing-those-lines-with-equivalent-valentine-themed-wording-that-does-not-include-the-word-flower",
-      "title": "Remove the word “flower” (and plural forms like “flowers”) from all user-facing website text and attributes, including but not limited to subtitles, success-state copy, and image alt text, replacing those lines with equivalent Valentine-themed wording that does not include the word “flower”.",
+      "id": "IF-11",
+      "title": "User-facing copy scrubbed of the word “flower”",
+      "synonyms": [
+        "copy cleanup",
+        "remove 'flower' wording"
+      ],
+      "description": "Ensures user-facing text/attributes avoid the literal word “flower”/“flowers” (while retaining Valentine-themed messaging), including updates such as non-flower alt text for the hero image.",
       "reqIds": [
         "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "No backend query layer (placeholder useQueries)",
+      "synonyms": [
+        "useQueries stub",
+        "frontend-only state"
+      ],
+      "description": "Defines `useQueries.ts` as an intentional empty module documenting that the backend exposes no methods and the interaction/state are fully local to the frontend App component.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "Build-template packaging for ICP React + Motoko starter",
+      "synonyms": [
+        "build-template",
+        "exportable project scaffold",
+        "docker/build.sh pipeline"
+      ],
+      "description": "Adds a `build-template/` scaffold (Dockerfile, deploy script, ICP/canister YAMLs, frontend workspace with shadcn/ui components and lint rules, and image utility scripts) to support reproducible builds/deploys and exporting the project as a reusable ICP starter template.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-14",
+      "title": "Build-template frontend includes comprehensive shadcn/ui library + custom ESLint rules",
+      "synonyms": [
+        "template frontend scaffold",
+        "shadcn/ui full component set",
+        "template lint rules"
+      ],
+      "description": "The `build-template/src/frontend/` scaffold now ships with a broad set of shadcn/ui components and supporting utilities/hooks, plus template-specific ESLint configuration and custom rules (e.g., requiring the InternetIdentityProvider and discouraging bigint usage in react-query keys) to enforce consistent frontend architecture in exported builds.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-15",
+      "title": "Generated romantic hero image asset (1200×800)",
+      "synonyms": [
+        "romantic hero image",
+        "generated hero PNG"
+      ],
+      "description": "Adds a generated hero image asset at `frontend/public/assets/generated/romantic-hero-image.dim_1200x800.png` intended for use in the Valentine page UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-gentle-fade-in-animation-for-the-romantic-hero-image-on-the-main-pre-yes-screen-so-the-image-smoothly-appears-on-initial-render",
+      "title": "Add a gentle fade-in animation for the romantic hero image on the main (pre-Yes) screen so the image smoothly appears on initial render.",
+      "reqIds": [
+        "REQ-4"
       ],
       "version": 1
     }
@@ -143,42 +187,41 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Remove the personalization option from the Valentine website UI",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Remove the word \"flower\" from the Valentine website content/theme text",
+      "summary": "Add a gentle fade-in animation to the romantic image on the page (hero/top image).",
       "reqIds": [],
       "status": "pending"
     }
   ],
   "architectural_notes": [
-    "Project uses a two-canister layout (backend + frontend assets) with generated Candid/TypeScript declarations for typed frontend interaction.",
-    "Frontend authentication is handled via Internet Identity; actor creation is abstracted into hooks to enable authenticated/anonymous calls.",
-    "Frontend build is Vite-based with Tailwind and shadcn/ui; component sources are vendored into the repo under src/components/ui.",
-    "Asset pipeline includes scripts to resize/prune generated images and stores outputs under frontend/public/assets/generated.",
-    "Frontend codebase includes custom ESLint rules to enforce ICP-specific constraints (e.g., Internet Identity provider wiring and query-key BigInt restrictions).",
-    "Frontend includes a personalization system (defaults + UI panel) with state persisted locally (useLocalStorageState + StorageClient/localStorage)."
+    "Two-part ICP layout is implied: a Motoko canister backend (currently no methods) and a frontend that can create an actor via configuration helpers.",
+    "Frontend uses React Context for authentication state (InternetIdentityProvider) and @tanstack/react-query for caching the backend actor and coordinating refetch/invalidation when identity changes.",
+    "UI is built with TailwindCSS design tokens (OKLCH CSS variables) and shadcn/ui components; theming is applied by setting a `data-theme` attribute on the document root.",
+    "The Valentine interaction is intentionally frontend-only: the `useQueries` hook is a placeholder and App-level local React state drives the entire experience.",
+    "Animations are implemented via a mix of Tailwind config keyframes and custom CSS keyframes/utility classes (e.g., float-up, confetti-fall).",
+    "Project now includes a `build-template/` directory containing a reusable ICP project scaffold (Dockerfile, deploy.sh, icp.yaml, canister.yaml files, workspace package manifests) intended for reproducible builds and deployment/export.",
+    "Build pipeline utilities were added under `build-template/scripts/` (e.g., prune-unused-images.js, resize-images.js) to manage frontend image assets as part of the template/tooling.",
+    "The `build-template/src/frontend/` scaffold includes template-specific ESLint configuration with custom rules (e.g., enforcing presence of InternetIdentityProvider and guarding against bigint in react-query keys) to keep exported projects aligned with the intended ICP/React architecture.",
+    "The build-template now bundles a large, ready-to-use set of shadcn/ui components and frontend utilities (hooks, utils, config) as part of the reproducible template scaffold, reducing post-export setup.",
+    "A generated frontend image asset is now included under `frontend/public/assets/generated/` (e.g., `romantic-hero-image.dim_1200x800.png`), aligning with the template’s image tooling scripts for reproducible asset generation/management."
   ],
-  "known_issues": [],
+  "known_issues": [
+    "CelebrationEffect uses dynamic Tailwind class names (e.g., `bg-${piece.color}`), which may be omitted by Tailwind’s class scanning unless a safelist is configured; this can cause missing confetti colors in production builds.",
+    "useInternetIdentity’s initialization effect sets `loginStatus` to 'idle' in `finally` even after a caught initialization error sets 'loginError', potentially masking initialization failures.",
+    "Internet Identity provider URL is read from `process.env.II_URL`; in typical Vite setups this should be `import.meta.env` (or explicitly injected), otherwise it may be undefined at runtime.",
+    "Several previously-used personalization-related modules are now empty stubs (PersonalizationPanel, useLocalStorageState, personalizationDefaults), which can confuse maintenance and may indicate incomplete cleanup.",
+    "There are two global CSS files (`frontend/index.css` and `frontend/src/index.css`); only `frontend/src/index.css` is imported by the app entrypoint, so the other is likely dead/legacy."
+  ],
   "isFixRequest": false,
   "generatedImages": [
     {
-      "filename": "frontend/public/assets/generated/fizza-hero-romantic.dim_1200x800.png",
-      "description": "Generated hero image asset (romantic variant, 1200x800).",
+      "filename": "frontend/public/assets/generated/romantic-hero-image.dim_1200x800.png",
+      "description": "Generated romantic hero image asset used by the Valentine page.",
       "targetWidth": 1200,
       "targetHeight": 800
-    },
-    {
-      "filename": "frontend/public/assets/generated/fizza-pattern-romantic.dim_1024x1024.png",
-      "description": "Generated pattern/texture asset (romantic variant, 1024x1024).",
-      "targetWidth": 1024,
-      "targetHeight": 1024
     }
   ],
-  "projectName": "Remove personalization UI and remove the word “flower” from all site text",
+  "gameProjectType": "none",
+  "projectName": "Will You Be My Valentine, Fizza",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
